@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reboot.rebootweb.mapper.TradeMapper">
+
+    <resultMap id="BaseResultMap" type="com.reboot.rebootweb.entity.Trade">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="side" column="side" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="symbol" column="symbol" jdbcType="VARCHAR"/>
+            <result property="quantity" column="quantity" jdbcType="DECIMAL"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="accountId" column="account_id" jdbcType="BIGINT"/>
+            <result property="flowAccountId" column="flow_account_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,side,type,
+        symbol,quantity,create_time,
+        account_id,flow_account_id
+    </sql>
+</mapper>

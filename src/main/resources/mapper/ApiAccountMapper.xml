@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reboot.rebootweb.mapper.ApiAccountMapper">
+
+    <resultMap id="BaseResultMap" type="com.reboot.rebootweb.entity.ApiAccount">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="apiKey" column="api_key" jdbcType="VARCHAR"/>
+        <result property="secretKey" column="secret_key" jdbcType="VARCHAR"/>
+        <result property="passphrase" column="passphrase" jdbcType="VARCHAR"/>
+        <result property="terrace" column="terrace" jdbcType="VARCHAR"/>
+        <result property="follow" column="follow" jdbcType="BIGINT"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+        <result property="main" column="main" jdbcType="INTEGER"/>
+        <result property="isOnline" column="is_online" jdbcType="INTEGER"/>
+        <result property="onlineStatus" column="online_status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,api_key,secret_key,
+        passphrase,terrace,follow,
+        remarks,main,is_online,
+        online_status
+    </sql>
+    <update id="updateOnlineStatusById">
+        update api_account
+        set is_online=#{online},
+            online_status=#{onlineStatus}
+        where id = #{id};
+    </update>
+</mapper>
