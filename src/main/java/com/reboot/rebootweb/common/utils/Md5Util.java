@@ -1,4 +1,4 @@
-package com.sg.classmanager.common.utils;
+package com.reboot.rebootweb.common.utils;
 
 import org.springframework.util.DigestUtils;
 

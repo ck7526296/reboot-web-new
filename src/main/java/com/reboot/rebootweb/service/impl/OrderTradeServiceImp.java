@@ -1,4 +1,4 @@
-package com.reboot.rebootweb.service.imp;
+package com.reboot.rebootweb.service.impl;
 
 import com.binance.connector.futures.client.impl.UMFuturesClientImpl;
 import com.reboot.rebootweb.entity.response.BinancePositionChange;

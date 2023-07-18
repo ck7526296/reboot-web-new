@@ -1,4 +1,4 @@
-package com.reboot.rebootweb.common.api;
+package com.reboot.rebootweb.common.enums;
 
 public enum ResponseEvent {
     ListenKeyExpired("listenKeyExpired"),

@@ -1,4 +1,4 @@
-package com.reboot.rebootweb.common.api;
+package com.reboot.rebootweb.common.enums;
 
 /**
  * 封装API的错误码

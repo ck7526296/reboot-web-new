@@ -1,5 +1,7 @@
 package com.reboot.rebootweb.service;
 
-public interface OrderService {
+import com.reboot.rebootweb.entity.response.BinancePositionChange;
 
+public interface OrderTradeService {
+    void Trade(BinancePositionChange binancePositionChange);
 }

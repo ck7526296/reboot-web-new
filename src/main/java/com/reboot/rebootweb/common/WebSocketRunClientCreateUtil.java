@@ -1,28 +1,32 @@
 package com.reboot.rebootweb.common;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.reboot.rebootweb.entity.request.UserData;
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
-import org.springframework.beans.factory.annotation.Value;
 
-import java.awt.image.Kernel;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @Slf4j
-public class WebSocketRunClient {
+public class WebSocketRunClientCreateUtil {
 
-    private final static String FSTREAM_API = "wss://fstream.binance.com/ws/";
+    private final static String FSTREAM_API = "wss://dstream.binance.com/ws/";
 
-    private WebSocketRunClient() {
+    private WebSocketRunClientCreateUtil() {
     }
 
-    public static WebSocketClient webSocketClientCreate(String key, String userName) throws URISyntaxException {
-        return new WebSocket(new URI(FSTREAM_API + key), userName);
+    public static WebSocket webSocketClientCreate(String key, String userName) throws URISyntaxException {
+        log.info(FSTREAM_API + key);
+        return new WebSocket(new URI(FSTREAM_API ), userName);
     }
 
-    private static class WebSocket extends WebSocketClient {
+    public static class WebSocket extends WebSocketClient {
         private final String userName;
+        private static final ObjectMapper objectMapper = new ObjectMapper();
 
         public WebSocket(URI serverUri, String userName) {
             super(serverUri);
@@ -48,6 +52,19 @@ public class WebSocketRunClient {
         public void onError(Exception e) {
             log.info("{} 发生错误", this.userName);
             e.printStackTrace();
+        }
+
+
+        public void sendRequest(String s) {
+            try {
+                final List<String> params = List.of(s + "@position");
+                final UserData userData = new UserData("REQUEST", params, 34L);
+                String json =objectMapper.writeValueAsString(userData);
+                log.info(json);
+                this.send(json);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

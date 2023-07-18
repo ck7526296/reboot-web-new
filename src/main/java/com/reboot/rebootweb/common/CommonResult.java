@@ -1,4 +1,7 @@
-package com.reboot.rebootweb.common.api;
+package com.reboot.rebootweb.common;
+
+import com.reboot.rebootweb.common.enums.IErrorCode;
+import com.reboot.rebootweb.common.enums.ResultCode;
 
 /**
  * 通用返回对象

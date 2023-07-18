@@ -1,4 +1,4 @@
-package com.reboot.rebootweb.common.api;
+package com.reboot.rebootweb.common.enums;
 
 /**
  * 枚举了一些常用API操作码
